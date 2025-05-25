@@ -4,8 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
+    
     const cipherTypeSelect = document.getElementById('cipher-type');
     const keyInput = document.getElementById('cipher-key');
+     const keyClass = document.getElementsByClassName('key-input');
     const textInput = document.getElementById('plaintext');
     const resultOutput = document.getElementById('result');
     const encryptBtn = document.getElementById('encrypt-btn');
@@ -63,9 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Enable specific options based on cipher type
         switch (selectedCipher) {
             case 'affine':
+                
                 affineOptions.style.display = 'block';
+                keyClass[0].style.display = 'none';
                 break;
             case 'hill':
+                keyClass[0].style.display = 'none';
                 hillOptions.style.display = 'block';
                 break;
             case 'extended':
@@ -74,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'vigenere':
             case 'autokey':
             case 'playfair':
+                keyClass[0].style.display = 'block';
+                break;
                 // These ciphers only work with alphabetic text
                 if (fileRadio.checked) {
                     textRadio.checked = true;

@@ -9,7 +9,7 @@ const affine = {
         
         // Validate parameters
         if (!isCoprime(a, 26)) {
-            throw new Error("Parameter 'a' must be coprime with 26");
+            throw new Error("Nilai a (harus relatif prima terhadap 26)");
         }
         
         let ciphertext = '';
@@ -34,7 +34,7 @@ const affine = {
         
         // Validate parameters
         if (!isCoprime(a, 26)) {
-            throw new Error("Parameter 'a' must be coprime with 26");
+            throw new Error("Parameter 'a' harus relatif prima terhadap 26");
         }
         
         // Calculate modular multiplicative inverse of a
