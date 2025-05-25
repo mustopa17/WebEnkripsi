@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher Suite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cipher Suite</h1>
+        
+        <div class="cipher-selection">
+            <label for="cipher-type">Select Cipher:</label>
+            <select id="cipher-type">
+                <option value="vigenere">Vigenere Cipher (26 Alphabet)</option>
+                <option value="autokey">Auto-key Vigenere Cipher (26 Alphabet)</option>
+                <option value="extended">Extended Vigenere Cipher (256 ASCII)</option>
+                <option value="affine">Affine Cipher</option>
+                <option value="playfair">Playfair Cipher (26 Alphabet)</option>
+                <option value="hill">Hill Cipher</option>
+            </select>
+        </div>
+
+        <div class="cipher-options">
+            <div class="option-group" id="affine-options" style="display: none;">
+                <label for="affine-a">a value (must be coprime with 26):</label>
+                <input type="number" id="affine-a" value="5">
+                <label for="affine-b">b value:</label>
+                <input type="number" id="affine-b" value="8">
+            </div>
+            
+            <div class="option-group" id="hill-options" style="display: none;">
+                <label for="hill-matrix-size">Matrix Size:</label>
+                <select id="hill-matrix-size">
+                    <option value="2">2x2</option>
+                    <option value="3">3x3</option>
+                </select>
+                <div id="matrix-input-container">
+                    <!-- Matrix inputs will be generated here -->
+                </div>
+            </div>
+
+            <div class="key-input">
+                <label for="cipher-key">Enter Key:</label>
+                <input type="text" id="cipher-key" placeholder="Enter key here">
+            </div>
+        </div>
+
+        <div class="input-method">
+            <div class="radio-group">
+                <input type="radio" id="text-input" name="input-type" value="text" checked>
+                <label for="text-input">Text Input</label>
+                
+                <input type="radio" id="file-input" name="input-type" value="file">
+                <label for="file-input">File Input</label>
+            </div>
+        </div>
+
+        <div id="text-input-container">
+            <textarea id="plaintext" placeholder="Enter your text here"></textarea>
+        </div>
+
+        <div id="file-input-container" style="display: none;">
+            <input type="file" id="input-file">
+            <p id="file-info">No file selected</p>
+        </div>
+
+        <div class="action-buttons">
+            <button id="encrypt-btn">Encrypt</button>
+            <button id="decrypt-btn">Decrypt</button>
+        </div>
+
+        <div class="output-format" id="text-output-options">
+            <p>Text Output Format:</p>
+            <div class="radio-group">
+                <input type="radio" id="no-spaces" name="output-format" value="no-spaces" checked>
+                <label for="no-spaces">No Spaces</label>
+                
+                <input type="radio" id="five-group" name="output-format" value="five-group">
+                <label for="five-group">5-Letter Groups</label>
+            </div>
+        </div>
+
+        <div class="result">
+            <h3>Result:</h3>    
+            <textarea id="result" readonly></textarea>
+            <div class="result-actions">
+                <button id="copy-btn">Copy</button>
+                <button id="save-btn">Save to File</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="vigenere.js"></script>
+    <script src="autokey.js"></script>
+    <script src="extended.js"></script>
+    <script src="affine.js"></script>
+    <script src="playfair.js"></script>
+    <script src="hill.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
