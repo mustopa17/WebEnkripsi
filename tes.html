@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASCII ↔ Karakter Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 100%;
+      font-size: 16px;
+    }
+    label {
+      font-weight: bold;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>ASCII ↔ Karakter Converter</h2>
+
+  <label for="charInput">Masukkan Karakter:</label>
+  <input type="text" id="charInput" maxlength="1" placeholder="Contoh: A">
+  <div class="result" id="asciiOutput"></div>
+
+  <label for="asciiInput">Masukkan Kode ASCII (0–255):</label>
+  <input type="number" id="asciiInput" min="0" max="255" placeholder="Contoh: 65">
+  <div class="result" id="charOutput"></div>
+
+  <script>
+    const charInput = document.getElementById('charInput');
+    const asciiInput = document.getElementById('asciiInput');
+    const asciiOutput = document.getElementById('asciiOutput');
+    const charOutput = document.getElementById('charOutput');
+
+    charInput.addEventListener('input', () => {
+      const char = charInput.value;
+      if (char.length === 1) {
+        asciiOutput.textContent = `Kode ASCII dari '${char}' adalah: ${char.charCodeAt(0)}`;
+      } else {
+        asciiOutput.textContent = '';
+      }
+    });
+
+    asciiInput.addEventListener('input', () => {
+      const code = parseInt(asciiInput.value);
+      if (!isNaN(code) && code >= 0 && code <= 255) {
+        charOutput.textContent = `Karakter dari kode ASCII ${code} adalah: '${String.fromCharCode(code)}'`;
+      } else {
+        charOutput.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

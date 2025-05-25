@@ -36,7 +36,8 @@ const extended = {
             return bytesToString(resultBytes);
         }
         
-        return resultBytes;
+        // Convert result bytes to ASCII characters string
+        return String.fromCharCode(...resultBytes);
     },
     
     // Text-based decryption
@@ -72,6 +73,7 @@ const extended = {
             return bytesToString(resultBytes);
         }
         
-        return resultBytes;
+        // Convert result bytes to ASCII characters string
+        return String.fromCharCode(...resultBytes);
     }
 };
