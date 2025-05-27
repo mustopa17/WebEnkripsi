@@ -80,10 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'autokey':
             case 'playfair':
                 keyClass[0].style.display = 'block';
-                break;
                 // These ciphers only work with alphabetic text
                 if (fileRadio.checked) {
-                    textRadio.checked = true;
+                    textRadio.checked = false;
                     toggleInputMethod();
                 }
                 fileRadio.disabled = true;
