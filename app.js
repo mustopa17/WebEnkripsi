@@ -65,11 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Enable specific options based on cipher type
         switch (selectedCipher) {
             case 'affine':
-                
+                fileRadio.disabled = true;
                 affineOptions.style.display = 'block';
                 keyClass[0].style.display = 'none';
                 break;
             case 'hill':
+                fileRadio.disabled = true;
                 keyClass[0].style.display = 'none';
                 hillOptions.style.display = 'block';
                 break;
@@ -80,11 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'autokey':
             case 'playfair':
                 keyClass[0].style.display = 'block';
-                // These ciphers only work with alphabetic text
-                if (fileRadio.checked) {
-                    textRadio.checked = false;
-                    toggleInputMethod();
-                }
                 fileRadio.disabled = true;
                 break;
         }
